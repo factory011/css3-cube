@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>酷炫正方体</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <div class="wrap">
+    <!--最外层div-->
+    <div class="cube">
+      <!--正方体的box-->
+      <!--大正方体的六面-->
+      <div class="out-front"></div>
+      <div class="out-back"></div>
+      <div class="out-left"></div>
+      <div class="out-right"></div>
+      <div class="out-top"></div>
+      <div class="out-bottom"></div>
+      <!--小正方体的六面-->
+      <span class="in-front">
+        <!--前面的点数1-->
+        <span class="points"></span>
+      </span>
+      <span class="in-back">
+        <!--后面的点数3-->
+        <span class="points"></span>
+        <span class="points pitB2"></span>
+        <span class="points pitB3"></span>
+      </span>
+      <span class="in-left">
+        <!--左面的点数2-->
+        <span class="points"></span>
+        <span class="points pitL2"></span>
+      </span>
+      <span class="in-right">
+        <!--右面的点数4-->
+        <span class="points"></span>
+        <span class="points"></span>
+        <span class="points"></span>
+        <span class="points"></span>
+      </span>
+      <span class="in-top">
+        <!--上面的点数5-->
+        <span class="pitT1">
+          <span class="points"></span>
+          <span class="points "></span>
+        </span>
+        <span class="pitT2">
+          <span class="points"></span>
+        </span>
+        <span class="pitT3">
+          <span class="points"></span>
+          <span class="points"></span>
+        </span>
+      </span>
+      <span class="in-bottom">
+        <!--下面的点数6-->
+        <span class="points"></span>
+        <span class="points"></span>
+        <span class="points"></span>
+        <span class="points"></span>
+        <span class="points"></span>
+        <span class="points"></span>
+      </span>
+
+    </div>
+  </div>
+
+  <script src="js/jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      // 设置大正方体的背景样式
+      $(".cube>div").each(function (index, element) {
+        $(element).css({
+          "background": "url(images/0" + (index + 1) + ".jpg) no-repeat center center / cover",
+          "opacity": 0.8
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
