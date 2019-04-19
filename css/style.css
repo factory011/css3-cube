@@ -57,7 +57,7 @@ div.wrap {
   /*设置一下圆角*/
   position: absolute;
   /*开启绝对定位，这样就全部叠在一起了*/
-  transition: transform 0.6s ease-in;
+  transition: transform 0.3s ease-in;
   /*过度变形的时间设置和快慢设置*/
 }
 
