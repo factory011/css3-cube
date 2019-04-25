@@ -1,6 +1,6 @@
 /*简单清除默认样式*/
 * {
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
 }
 
@@ -21,16 +21,46 @@ html {
   height: 100%;
 }
 
-div.wrap {
-  margin-top: 200px;
-  /*上外边距设置*/
-  width: 200px;
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.tab {
+  position: fixed;
+  left: 30px;
+  top: 30px;
+  z-index: 1;
+}
+
+.tab>div {
+  float: left;
+  width: 124px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  border-radius: 16px;
+  background-color: gold;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+div.cube-wrap {
+  /*margin-top: 200px;
+  上外边距设置
+  width: 200px;*/
   /*给他一个宽度*/
   perspective: 1000px;
   /*景深设置，视图距元素的距离  相当于摄像机*/
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
 }
 
-.wrap>div.cube {
+.cube-wrap>div.cube {
   width: 200px;
   /*box设置宽度200像素*/
   height: 200px;
@@ -150,32 +180,32 @@ div.wrap {
 }
 
 /*当鼠标滑过这个div的时候。过渡变化下面的事件*/
-.wrap:hover .cube div.out-front {
+.cube-wrap:hover .cube div.out-front {
   transform: translateZ(200px);
   /*当鼠标滑过，前面就往前凸*/
 }
 
-.wrap:hover .cube div.out-back {
+.cube-wrap:hover .cube div.out-back {
   transform: translateZ(-200px) rotateY(180deg);
   /*当鼠标滑过，前面就往后跑，加了旋转是因为一开始是平面的，不加会变会原样*/
 }
 
-.wrap:hover .cube div.out-left {
+.cube-wrap:hover .cube div.out-left {
   transform: translateX(-200px) rotateY(-90deg);
   /*当鼠标滑过，左面就往左飞*/
 }
 
-.wrap:hover .cube div.out-right {
+.cube-wrap:hover .cube div.out-right {
   transform: translateX(200px) rotateY(90deg);
   /*当鼠标滑过，右面就往右进*/
 }
 
-.wrap:hover .cube div.out-top {
+.cube-wrap:hover .cube div.out-top {
   transform: translateY(-200px) rotateX(90deg);
   /*当鼠标滑过，上面就往上冒*/
 }
 
-.wrap:hover .cube div.out-bottom {
+.cube-wrap:hover .cube div.out-bottom {
   transform: translateY(200px) rotateX(-90deg);
   /*当鼠标滑过，下面就往下弹*/
 }
@@ -267,4 +297,76 @@ span.in-bottom {
   flex-direction: column;
   flex-wrap: wrap;
   align-content: space-around;
+}
+
+
+/*==============================================*/
+.girl {
+  position: relative;
+  height: 100%;
+  display: none;
+}
+
+.girl .wrap {
+  position: absolute;
+  perspective: 1000px;
+  width: 600px;
+  height: 400px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.girl ul {
+  list-style: none;
+  width: 300px;
+  height: 400px;
+  position: relative;
+  float: right;
+  transform-style: preserve-3d;
+  transition: all 1s;
+  transform-origin: center bottom;
+}
+
+.girl ul li {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 3px solid gold;
+  width: 100%;
+  height: 100%;
+  transform-origin: left center;
+  transition: all 1s;
+  box-sizing: border-box;
+}
+
+.girl ul li img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.girl ul:hover {
+  transform: rotateX(45deg);
+}
+
+.girl ul:hover li:nth-last-child(1) {
+  transform: rotateY(-170deg);
+  transition-delay: 1s;
+}
+
+.girl ul:hover li:nth-last-child(2) {
+  transform: rotateY(-145deg);
+  transition-delay: 2s;
+}
+
+.girl ul:hover li:nth-last-child(3) {
+  transform: rotateY(-110deg);
+  transition-delay: 3s;
+}
+
+.girl ul:hover li:nth-last-child(4) {
+  transform: rotateY(-35deg);
+  transition-delay: 4s;
+  opacity: 0.8;
 }

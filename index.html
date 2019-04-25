@@ -12,8 +12,13 @@
 <body>
   
   <script>NProgress.start()</script>
+    
+  <div class="tab">
+    <div class="cool-cube">炫酷立方体</div>
+    <div class="beauty-album">美女相册</div>
+  </div>  
 
-  <div class="wrap">
+  <div class="cube-wrap">
     <!--最外层div-->
     <div class="cube">
       <!--正方体的box-->
@@ -70,19 +75,41 @@
         <span class="points"></span>
         <span class="points"></span>
       </span>
-
     </div>
+  </div>
+
+  <div class="girl">
+    <div class="wrap">
+      <ul>
+       <li><img src="images/01mv.jpg" alt=""></li>
+       <li><img src="images/02.jpg" alt=""></li>
+       <li><img src="images/03mv.jpg" alt=""></li>
+       <li><img src="images/04mv.jpg" alt=""></li>
+       <li><img src="images/05mv.jpg" alt=""></li>
+      </ul>
+    </div>   
   </div>
 
   <script src="js/jquery-1.12.4.js"></script>
   <script>
     $(function () {
       // 设置大正方体的背景样式
-      $(".cube>div").each(function (index, element) {
+      $('.cube>div').each(function (index, element) {
         $(element).css({
           "background": "url(images/0" + (index + 1) + ".jpg) no-repeat center center / cover",
           "opacity": 0.8
         });
+      });
+
+      // 设置tab切换
+      $('.tab>div').mouseenter(function () {
+        if ($(this).attr('class') === 'cool-cube') {
+          console.log('cool-cube');
+          $('.cube-wrap').show().next().hide();
+        } else if ($(this).attr('class') === 'beauty-album') {
+          console.log('beauty-album');
+          $('.girl').show().prev().hide();
+        }
       });
     });
   </script>
