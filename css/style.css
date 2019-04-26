@@ -21,7 +21,7 @@ html {
   height: 100%;
 }
 
-body {
+body { 
   height: 100%;
   overflow: hidden;
 }
@@ -35,7 +35,7 @@ body {
 
 .tab>div {
   float: left;
-  width: 124px;
+  width: 160px;
   height: 48px;
   line-height: 48px;
   text-align: center;
@@ -43,6 +43,10 @@ body {
   background-color: gold;
   margin: 0 10px;
   cursor: pointer;
+}
+
+.tab>div:hover {
+  background-color: pink;
 }
 
 div.cube-wrap {
@@ -369,4 +373,14 @@ span.in-bottom {
   transform: rotateY(-35deg);
   transition-delay: 4s;
   opacity: 0.8;
+}
+
+/*============================================*/
+canvas {
+  border: 1px solid gold;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  display: none;
 }
