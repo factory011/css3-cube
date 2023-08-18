@@ -10,13 +10,15 @@
   <script src="nprogress/nprogress.js"></script>
 </head>
 
-<body>
+<body @onclick="handlePlay">
   
   <script>NProgress.start()</script>
     
   <div class="home">
-    <img src="./images/home.jpg" alt="">
+    <img class="bg-img" src="./images/home.jpg" alt="">
+    <img class="icon-msuic" onclick="handlePlay()" src="./images/icon_music.svg" alt="">
   </div>
+
 
   <div class="cube-wrap">
     <!--最外层div-->
@@ -57,10 +59,12 @@
     </div>
   </div>
 
+  <!-- 播放音频 -->
+  <audio src="./images/music.mp3" controls="controls" loop preload id="audio" hidden >
+
   <script src="js/jquery-1.12.4.js"></script>
   <script>
     $(function () {
-      // $('.home').show().siblings().hide();
       // 设置大正方体的背景样式
       $('.cube>div').each(function (index, element) {
         $(element).css({
@@ -69,6 +73,20 @@
         });
       });
     });
+
+  // 单击播放、暂停    
+  function handlePlay () {
+    var status = $('.icon-msuic').css('animation-play-state');
+    var audio = $('#audio')[0];
+    if (status === 'paused' ) {
+      $('.icon-msuic').css('animation-play-state', 'running');
+      audio.play();
+    } else {
+      $('.icon-msuic').css('animation-play-state', 'paused');
+      audio.pause();
+    }
+  }
+
   </script>
 
   <script>NProgress.done()</script>
